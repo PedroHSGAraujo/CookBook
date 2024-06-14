@@ -1,0 +1,145 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="/img/hero-image.png" width="607" height="510" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Mulher comendo">
+    </div>
+  
+    <div class="col-12 col-lg-6">
+      <h1 class="display-5 fw-bold mb-3">Uma enorme seleção de recitas para você</h1>
+      <p class="lead">
+        Explore nossa enorme seleção de ideias de receitas deliciosas, incluindo; sobremesas fáceis, deliciosas ideias para jantares veganos e vegetarianos, lindas receitas de massas, assados ​rápidos, refeições familiares e receitas sem glúten.
+      </p>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="/explore-recente" class="btn btn-primary btn-dark btn-lg px-4 me-md-2">Ver Mais Recente</a>
+        <a href="/explore-aleatorio" class="btn btn-outline-secondary btn-lg px-4 me-md-2">Mostrar Aleatória</a>
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <!-- Categorias-->
+  <div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+    <% if(categories != '') { %>
+      <% categories.forEach(function(category, index) { %>
+        <a href="/categorias/<%- category.name %>" class="col text-center category__link">
+          <div class="category__img shadow">
+            <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+          </div>
+          <div class="pt-1"><%- category.name %></div>
+        </a>
+      <% }) %>
+    <% } %>
+    <a href="/categorias" class="col text-center category__link">
+      <div class="category__img shadow">
+        <img src="img/view-all.jpg" alt="Ver todas as categorias" loading="lazy">
+      </div>
+      <div class="pt-1">Ver Todas</div>
+    </a>
+  </div>
+  <!-- Categorias Fim-->
+
+  <!-- Recentes-->
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Receitas Mais Recentes</h2>
+      <a href="/explore-recente" class="ms-auto">Ver Mais</a>
+    </div>
+  
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(food != '') { %>
+            <% food.latest.forEach(function(recipe, index){ %>
+            <a href="/receita/<%= recipe._id %>" class="col text-center category__link">
+              <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+              </div>
+              <div class="pt-1"><%= recipe.name %></div>
+            </a>
+            <% }) %>
+          <% } else { %>
+            <p>Nenhum item encontrado.</p>
+          <% } %>
+    </div>
+  </section>
+  <!-- Recentes Fim-->
+  <!-- Thai-->
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Receitas Thailandesas</h2>
+      <a href="/categorias/thailandesas" class="ms-auto">Ver Mais</a>
+    </div>
+  
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(food != '') { %>
+            <% food.thai.forEach(function(recipe, index){ %>
+            <a href="/receita/<%= recipe._id %>" class="col text-center category__link">
+              <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+              </div>
+              <div class="pt-1"><%= recipe.name %></div>
+            </a>
+            <% }) %>
+          <% } else { %>
+            <p>Nenhum item encontrado.</p>
+          <% } %>
+    </div>
+  </section>
+  <!-- Thai Fim-->
+  <!-- Americanas-->
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Receitas Americanas</h2>
+      <a href="/categorias/americanas" class="ms-auto">Ver Mais</a>
+    </div>
+  
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(food != '') { %>
+            <% food.american.forEach(function(recipe, index){ %>
+            <a href="/receita/<%= recipe._id %>" class="col text-center category__link">
+              <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+              </div>
+              <div class="pt-1"><%= recipe.name %></div>
+            </a>
+            <% }) %>
+          <% } else { %>
+            <p>Nenhum item encontrado.</p>
+          <% } %>
+    </div>
+  </section>
+  <!-- Americanas Fim-->
+  <!-- Chines-->
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Receitas Chinesas</h2>
+      <a href="/categorias/chinesas" class="ms-auto">Ver Mais</a>
+    </div>
+  
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(food != '') { %>
+            <% food.chinese.forEach(function(recipe, index){ %>
+            <a href="/receita/<%= recipe._id %>" class="col text-center category__link">
+              <div class="category__img category__img--large shadow">
+                <img src="/uploads/<%= recipe.image %>" alt="<%= recipe.name %>" loading="lazy">
+              </div>
+              <div class="pt-1"><%= recipe.name %></div>
+            </a>
+            <% }) %>
+          <% } else { %>
+            <p>Nenhum item encontrado.</p>
+          <% } %>
+    </div>
+  </section>
+  <!-- Chines Fim-->
+  <!-- Envio-->
+  <section class="px-4 py-5 my-5 text-center">
+    <img src="/img/publish-recipe.png" class="d-block mx-auto mb-4 img-fluid" alt="Publique sua receita GRATUITAMENTE hoje" width="566" height="208" loading="lazy">
+    <h1 class="display-5 fw-bold">Publique sua receita GRATUITAMENTE hoje</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Publique sua receita para milhares de pessoas gratuitamente.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/enviar-receita" class="btn btn-primary btn-dark btn-lg">Enviar Receita</a>
+      </div>
+    </div>
+  </section>
+  <!-- Envio Fim-->
